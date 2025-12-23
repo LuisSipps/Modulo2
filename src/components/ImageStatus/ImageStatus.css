@@ -3,6 +3,7 @@
     /* border: 1px red solid; */
     z-index: 1;
     max-width: 400px;
+    max-height: 300px;
 }
 
 .tip{

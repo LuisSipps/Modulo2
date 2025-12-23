@@ -1,9 +1,10 @@
 import {ImageStatus} from "../index";
+import "./Card.css"
 
 function Card(props) {
   return (
-    <div style={{border: "1px red solid"}}>
-    <ImageStatus isSuperHost={true}/>
+    <div className="cardContainer">
+    <ImageStatus isSuperHost={props.isSuperHost} imageUrl={props.imageUrl}/>
       <p>
         {props.texto}
       </p>
