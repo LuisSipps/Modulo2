@@ -5,7 +5,11 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+  const hosts = [
+    {id: 1, name: "Cabaña en Quatro Barras, Brasil", price: "$480,260"},
+    {id: 2, name: "Cabaña en Quatro Barras, Peru", price: "$490,260"},
+  ];
 
   return (
     <>
@@ -29,14 +33,14 @@ function App() {
       <p className="read-the-docs">
         Hola soy Luis Sepulveda
       </p>
-      <div className='container'>
-        {
-          hosts.map((host) =>{
-            <Card texto = {host.name} ></Card>;
-          })
+      <><Card texto="Hola"></Card></>
+      
+      <div className="container">
+        {hosts.map((host) => (
+            <Card texto = {host.name} ></Card>
+          ))
         }
       </div>
-      <><Card texto="alojamiento llllllllllllllllllllllllllllllllllllllllllllllll"></Card></>
     </>
   )
 }
