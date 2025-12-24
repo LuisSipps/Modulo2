@@ -4,17 +4,27 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import hospImg from './assets/images/hospedaje.png';
+import hospDefault from './assets/images/ImageDefault.jpg';
 
 function App() {
   const [count, setCount] = useState(0);
-  const hosts = [
+  const [hosts, setHosts] = 
+  useState([
+    { id: 0, name: "Esperando por servicio", price: "0", isSuperHost: false, imageUrl: hospDefault }
+  ]);
+
+  const hostsService = [
     { id: 1, name: "Cabaña en Quatro Barras, Brasil", price: "$480,260", isSuperHost: true, imageUrl: hospImg },
-    { id: 2, name: "Cabaña en Quatro Barras, Peru", price: "$490,260", isSuperHost: false, imageUrl: hospImg  },
-    { id: 3, name: "Cabaña en Quatro Barras, Brasil", price: "$480,260", isSuperHost: false, imageUrl: hospImg  },
-    { id: 4, name: "Cabaña en Quatro Barras, Peru", price: "$490,260", isSuperHost: true, imageUrl: hospImg  },
-    { id: 5, name: "Cabaña en Quatro Barras, Brasil", price: "$480,260", isSuperHost: false,  },
-    { id: 6, name: "Cabaña en Quatro Barras, Peru", price: "$490,260", isSuperHost: true, imageUrl: hospImg  },
+    { id: 2, name: "Cabaña en Quatro Barras, Peru", price: "$490,260", isSuperHost: false, imageUrl: hospImg },
+    { id: 3, name: "Cabaña en Quatro Barras, Brasil", price: "$480,260", isSuperHost: false, imageUrl: hospImg },
+    { id: 4, name: "Cabaña en Quatro Barras, Peru", price: "$490,260", isSuperHost: true, imageUrl: hospImg },
+    { id: 5, name: "Cabaña en Quatro Barras, Brasil", price: "$480,260", isSuperHost: false, },
+    { id: 6, name: "Cabaña en Quatro Barras, Peru", price: "$490,260", isSuperHost: true, imageUrl: hospImg },
   ];
+
+  function saludoHospedaje(name){
+    console.log("Hice un click en :" + name);
+  }
 
   return (
     <>
@@ -30,6 +40,9 @@ function App() {
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
+        </button>
+        <button onClick={() => setHosts(hostsService)}>
+          LLenar Hospedajes
         </button>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
@@ -47,6 +60,9 @@ function App() {
             key={host.id}
             isSuperHost={host.isSuperHost}
             imageUrl={host.imageUrl}
+            handleClick={() => {
+              saludoHospedaje(host.name);
+            }}
           >
           </Card>
         ))
